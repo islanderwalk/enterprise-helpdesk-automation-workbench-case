@@ -1,6 +1,6 @@
 # Enterprise IT Helpdesk Automation Workbench — Portfolio Evidence
 
-> Target role reference: **本萬有限公司 (Benwan Co., Ltd.)** via 104 人力銀行
+> Target role reference: **OO有限公司 (OO Co., Ltd.)** via OO人力銀行
 > Applicant: 梁瀚文 (Wen Liang)
 > Package type: **Portfolio evidence repo** (public-safe adaptation of real internal work)
 
