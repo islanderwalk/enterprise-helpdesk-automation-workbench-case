@@ -1,0 +1,74 @@
+{
+  "_comment": "Sanitized sample input for the Enterprise IT Helpdesk Automation Workbench. All names are synthetic placeholders. No real employee, account, or internal system identifier appears here. This file can be fed to the public demo at ../enterprise-provisioning-workbench-demo/ via `python -m demo_app --input <this file>`.",
+  "batch_id": "demo-batch-2026-04-15",
+  "source_run": {
+    "intake_at": "2026-04-15T09:00:00+08:00",
+    "operator": "portfolio-demo",
+    "sources": ["outlook-folder:SSLVPN-Requests", "excel:vpnlist-sample", "eip2:fsr-sample"]
+  },
+  "requests": [
+    {
+      "user_id": "alice.chen",
+      "email": "alice.chen@example.com",
+      "target_system": "sslvpn",
+      "action": "create",
+      "source": "outlook-folder:SSLVPN-Requests",
+      "metadata": {
+        "request_time": "2026-04-14T17:22:10+08:00",
+        "ticket_id": "DEMO-10001",
+        "access_profile": ["MAIL", "VPN"]
+      }
+    },
+    {
+      "user_id": "bob.wu",
+      "email": "bob.wu@example.com",
+      "target_system": "sslvpn",
+      "action": "create",
+      "source": "excel:vpnlist-sample",
+      "metadata": {
+        "request_time": "2026-04-14T18:05:00+08:00",
+        "ticket_id": "DEMO-10002",
+        "access_profile": ["VPN"]
+      }
+    },
+    {
+      "user_id": "bob.wu",
+      "email": "bob.wu@example.com",
+      "target_system": "sslvpn",
+      "action": "create",
+      "source": "eip2:fsr-sample",
+      "metadata": {
+        "request_time": "2026-04-15T08:30:00+08:00",
+        "ticket_id": "DEMO-10003",
+        "access_profile": ["VPN"],
+        "note": "second source for same account in same batch — merge layer should dedupe with reason 'latest source wins'"
+      }
+    },
+    {
+      "user_id": "carol.lin",
+      "email": "carol.lin@example.com",
+      "target_system": "ivanti",
+      "action": "create",
+      "source": "outlook-folder:SSLVPN-Requests",
+      "metadata": {
+        "request_time": "2026-04-15T08:45:00+08:00",
+        "ticket_id": "DEMO-10004",
+        "access_profile": ["ADMIN"],
+        "note": "ADMIN profile — planner should route to REVIEW, not auto-CREATE"
+      }
+    },
+    {
+      "user_id": "existing-dan.liu",
+      "email": "dan.liu@example.com",
+      "target_system": "sslvpn",
+      "action": "create",
+      "source": "excel:vpnlist-sample",
+      "metadata": {
+        "request_time": "2026-04-15T08:50:00+08:00",
+        "ticket_id": "DEMO-10005",
+        "access_profile": ["VPN"],
+        "note": "account already exists on target system — planner should route to SKIP"
+      }
+    }
+  ]
+}

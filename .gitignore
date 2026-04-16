@@ -1,0 +1,17 @@
+# Keep the portfolio repo clean of scraper intake + private reference files.
+# These files contain the 本萬 recruiter's name, email, and raw conversation —
+# DO NOT publish.
+
+docs/104_benwan_source.*
+docs/104_benwan_thread.*
+docs/104_benwan_jd.*
+docs/reply_to_benwan.md
+docs/reply_to_benwan.*.md
+docs/_frame_analysis_*.md
+
+# Debug artifacts from the Playwright scraper
+../_tmp_benwan_debug/
+_tmp_*/
+
+# Local-only portfolio notes
+*.local.md

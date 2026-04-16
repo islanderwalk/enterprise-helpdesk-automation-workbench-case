@@ -1,0 +1,103 @@
+{
+  "_comment": "Sanitized sample output produced by the Enterprise IT Helpdesk Automation Workbench planner, using the sibling sanitized_input/requests.json. All values are synthetic. This file illustrates what a real run report looks like in shape — reason strings, readback results, execution summary.",
+  "batch_id": "demo-batch-2026-04-15",
+  "run_at": "2026-04-15T09:00:30+08:00",
+  "operator": "portfolio-demo",
+  "summary": {
+    "ingested_requests": 5,
+    "unique_accounts": 4,
+    "decision_mix": {
+      "create": 1,
+      "review": 2,
+      "skip": 1,
+      "merged": 1
+    },
+    "external_writes_attempted": 1,
+    "external_writes_verified": 1,
+    "external_writes_failed": 0
+  },
+  "rows": [
+    {
+      "user_id": "alice.chen",
+      "email": "alice.chen@example.com",
+      "target_system": "sslvpn",
+      "action_planned": "CREATE",
+      "access_profile": ["MAIL", "VPN"],
+      "reason": "safe deterministic batch create",
+      "adapter_called": "sslvpn.provision",
+      "adapter_result": "ok",
+      "readback": {
+        "state_expected": "account-exists",
+        "state_observed": "account-exists",
+        "match": true
+      },
+      "communication": {
+        "draft_generated": true,
+        "draft_location": "outlook-drafts:credential-welcome-alice.chen",
+        "sent": false,
+        "note": "draft awaiting operator visual check"
+      }
+    },
+    {
+      "user_id": "bob.wu",
+      "email": "bob.wu@example.com",
+      "target_system": "sslvpn",
+      "action_planned": "MERGED",
+      "merged_from_sources": [
+        "excel:vpnlist-sample",
+        "eip2:fsr-sample"
+      ],
+      "merge_reason": "latest source wins; conflict-free merge of identical action/profile",
+      "final_decision": "CREATE",
+      "access_profile": ["VPN"],
+      "reason": "safe deterministic batch create (post-merge)",
+      "adapter_called": "sslvpn.provision",
+      "adapter_result": "ok",
+      "readback": {
+        "state_expected": "account-exists",
+        "state_observed": "account-exists",
+        "match": true
+      }
+    },
+    {
+      "user_id": "carol.lin",
+      "email": "carol.lin@example.com",
+      "target_system": "ivanti",
+      "action_planned": "REVIEW",
+      "access_profile": ["ADMIN"],
+      "reason": "high-impact ADMIN access requires operator review",
+      "adapter_called": null,
+      "readback": null,
+      "review_queue": {
+        "assigned_to": "operator",
+        "suggested_action": "confirm business approval before CREATE",
+        "deadline_hours": 24
+      }
+    },
+    {
+      "user_id": "existing-dan.liu",
+      "email": "dan.liu@example.com",
+      "target_system": "sslvpn",
+      "action_planned": "SKIP",
+      "access_profile": ["VPN"],
+      "reason": "existing account detected by deterministic lookup",
+      "adapter_called": null,
+      "readback": {
+        "state_expected": "account-exists",
+        "state_observed": "account-exists",
+        "match": true,
+        "note": "preflight readback confirmed no write needed"
+      }
+    }
+  ],
+  "telemetry": {
+    "telemetry_file": "logs/run-demo-batch-2026-04-15.jsonl",
+    "idempotency_store": "data/applied_history.db",
+    "events_emitted": 17
+  },
+  "sanitization": {
+    "source_data_was_synthetic": true,
+    "no_real_accounts_touched": true,
+    "sample_safe_for_public_review": true
+  }
+}
