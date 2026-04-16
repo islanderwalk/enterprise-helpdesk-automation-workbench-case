@@ -47,6 +47,22 @@ A layered workbench that treats user requests as **batches, not tickets**:
 
 PySide6 tabbed desktop shell orchestrating Product Package ETL, SYS SSLVPN batch import, Ivanti Local User, and WPM meeting scheduling. Private source; sanitized derivative in sibling demo repo.
 
+**The actual running application** — this is what the operator sees every day:
+
+![InQuire 3.0 — Home / Tool Launcher (6 tools, dark UI)](assets/screenshots/20_inquire3_gui_home.png)
+> Home screen with 6 tool cards: SSLVPN provisioning, AI Chat helpdesk, MIS Monthly Report, SSLVPN Archive, WPM Teams meeting scheduler, Analytics Board. Each card shows its live/planned status and description.
+
+![InQuire 3.0 — SSLVPN provisioning workspace](assets/screenshots/22_inquire3_tab_0.png)
+> SSLVPN tool open: Source selector (Product Package), Fetch/SYS/Ivanti/Mail/Audit action buttons, Orchestrator status bar, and Accounts table showing created records. Credentials redacted.
+
+![InQuire 3.0 — AI Chat (RAG helpdesk copilot)](assets/screenshots/22_inquire3_tab_1.png)
+> AI Chat tab: OpenAI embeddings + gpt-4o-mini backend, conversation window, prompt input, retrieved context panel. This is the internal helpdesk copilot backed by vector search over the knowledge base.
+
+![InQuire 3.0 — MIS Monthly Report (EIP2 crawler)](assets/screenshots/22_inquire3_tab_2.png)
+> MIS Monthly Report tool: login form, date range picker, Run Summary with discovered forms / rows written / warnings. Outputs a consolidated Excel workbook. Credentials redacted.
+
+**Project internals** (code structure, not just GUI):
+
 ![InQuire 3.0 — project structure](assets/screenshots/05_inquire3_tree.png)
 ![InQuire 3.0 — main.py + README](assets/screenshots/06_inquire3_main.png)
 ![InQuire 3.0 — architecture layers (jobs/config/core/ui)](assets/screenshots/08_inquire3_layers.png)
@@ -157,6 +173,19 @@ All from actual `pytest` / `unittest` runs on this machine, not CI badges:
 
 ![IT Automation Suite — folder structure](assets/screenshots/02_folder_structure.png)
 ![104 side — Python scripts](assets/screenshots/16_104_scripts.png)
+
+---
+
+## For non-technical reviewers (HR / hiring manager quick view)
+
+If you don't read code, here's what to look at:
+
+1. **Scroll up** — the dark-themed app screenshots are a real desktop application I built and run. It's not a website, it's an operator workspace.
+2. **The 6 tool cards** on the home screen = 6 different IT automation workflows, all in one app.
+3. **The SSLVPN tab** = where account provisioning happens in batch. One click, not twenty.
+4. **The AI Chat tab** = employees can ask IT questions and get AI-assisted answers before filing a ticket.
+5. **The test screenshots** at the bottom = 755 automated checks pass before any change ships. That's how I make sure nothing breaks.
+6. **`FOR_BENWAN.md`** = my direct answers to the 5 questions asked in the 104 conversation, plus a 6th question I added.
 
 ---
 
