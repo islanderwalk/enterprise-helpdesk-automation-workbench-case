@@ -43,13 +43,62 @@ A layered workbench that treats user requests as **batches, not tickets**:
 
 ## What was delivered (highest-impact items)
 
-- **InQuire 3.0** — PySide6 desktop shell orchestrating four real domain workflows (Product Package, SYS SSLVPN, Ivanti Local User, WPM meeting). 587/587 tests green on the sibling 104 codebase; InQuire 3.0 has its own 90+ integration-test bank. *Private source; sanitized derivative available.*
-- **AI-Based Email Behavior Classification Engine** — AI + few-shot + firewall-immunity pattern matcher that safely buckets SSL-VPN bounce emails into `DELETE / REVIEW / KEEP` and prevents over-aggressive account deletion.
-- **EIP2_report** — Five-stage pipeline (Cerberus FTP export → EIP2 form fetch → merge → Outlook draft generation → batch form sign-off) that collapses a 20-step manual provisioning task into one operator run.
-- **outlook_file_download** — Tkinter + Tesseract OCR + Outlook COM tool that extracts training-certificate images from Outlook, fuzzy-matches course names, and auto-fills the enrollment roster Excel.
-- **Confirmation email suite (7 systems)** — VBA macros for FTP / InQuire / ITS / Product Package / SVN / VPN_Internal / WPM, covering bulk credential distribution with HTML templates, multi-PDF attachments, and BCC-chunking (200-per-draft) to avoid SMTP limits.
-- **Helpdesk first-aid toolkit** — `Teams_Full_Reset.bat`, `fix_pulse_secure.bat`, `OneDrive_off.bat`, `eset_cleanup_deep.bat` — reusable one-click fixes that replace tribal knowledge runbooks.
-- **Enterprise Provisioning Workbench Demo** — already-published sanitized public derivative at `../enterprise-provisioning-workbench-demo/`.
+### InQuire 3.0 — Desktop workbench (PySide6, 4 domain workflows)
+
+PySide6 tabbed desktop shell orchestrating Product Package ETL, SYS SSLVPN batch import, Ivanti Local User, and WPM meeting scheduling. Private source; sanitized derivative in sibling demo repo.
+
+![InQuire 3.0 — project structure](assets/screenshots/05_inquire3_tree.png)
+![InQuire 3.0 — main.py + README](assets/screenshots/06_inquire3_main.png)
+![InQuire 3.0 — architecture layers (jobs/config/core/ui)](assets/screenshots/08_inquire3_layers.png)
+
+---
+
+### AI-Based Email Behavior Classification Engine
+
+AI + few-shot + firewall-immunity pattern matcher that buckets SSL-VPN bounce emails into `DELETE / REVIEW / KEEP`.
+
+![AI Email Classification — project structure](assets/screenshots/09_ai_email_tree.png)
+![AI Email Classification — analyze_emails.py](assets/screenshots/10_ai_email_code.png)
+
+---
+
+### EIP2_report — 5-stage provisioning pipeline
+
+Cerberus FTP export → EIP2 form fetch → merge → Outlook draft generation → batch form sign-off. Collapses a 20-step manual task into one operator run.
+
+![EIP2_report — 5-stage pipeline scripts](assets/screenshots/11_eip2_pipeline.png)
+
+---
+
+### outlook_file_download — OCR enrollment tool
+
+Tkinter + Tesseract OCR + Outlook COM: extracts training-certificate images, fuzzy-matches course names, auto-fills the enrollment roster Excel.
+
+![outlook_file_download — project structure](assets/screenshots/15_ocr_tool_tree.png)
+
+---
+
+### Confirmation email suite (7 systems)
+
+VBA macros for FTP / InQuire / ITS / Product Package / SVN / VPN_Internal / WPM. Bulk credential distribution with HTML templates, multi-PDF attachments, BCC-chunking (200-per-draft).
+
+![VBA confirmation email suite — 7 systems](assets/screenshots/12_vba_suite.png)
+
+---
+
+### Helpdesk first-aid toolkit
+
+`Teams_Full_Reset.bat`, `fix_pulse_secure.bat` — one-click fixes that replace tribal knowledge runbooks.
+
+![Helpdesk .bat toolkit — real code](assets/screenshots/14_bat_toolkit.png)
+
+---
+
+### Enterprise Provisioning Workbench Demo (public, runnable)
+
+Sanitized derivative with the same normalize → merge → decide → execute → verify spine. `python -m demo_app --show-stages` runs end-to-end.
+
+![Demo — LIVE RUN output](assets/screenshots/03_demo_live_run.png)
 
 ---
 
@@ -89,6 +138,25 @@ A layered workbench that treats user requests as **batches, not tickets**:
 | [`SANITIZATION_NOTES.md`](SANITIZATION_NOTES.md) | What was removed, renamed, mocked, or reconstructed — and why. |
 | [`docs/`](docs/) | Workflow diagrams, handoff notes, process breakdown. |
 | [`examples/`](examples/) | Sanitized sample input and output. |
+
+---
+
+## Real test evidence
+
+All from actual `pytest` / `unittest` runs on this machine, not CI badges:
+
+![104 IT Automation Suite — 755 tests passed](assets/screenshots/13c_104_pytest.png)
+![InQuire 3.0 — pytest passing](assets/screenshots/13b_inquire3_tests.png)
+![Demo — unittest passing](assets/screenshots/13a_demo_tests.png)
+
+---
+
+## 104 IT Automation Suite — full scope
+
+20+ sub-projects under one parent folder:
+
+![IT Automation Suite — folder structure](assets/screenshots/02_folder_structure.png)
+![104 side — Python scripts](assets/screenshots/16_104_scripts.png)
 
 ---
 
